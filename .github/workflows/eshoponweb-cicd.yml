@@ -1,15 +1,15 @@
 name: eShopOnWeb Build and Test
 
 #Triggers (uncomment line below to use it)
-#on: [push, workflow_dispatch]
+on: [push, workflow_dispatch]
 
 #Environment variables https://docs.github.com/en/actions/learn-github-actions/environment-variables
 env:
-  RESOURCE-GROUP: rg-eshoponweb-NAME
-  LOCATION: westeurope
+  RESOURCE-GROUP: rg-devOps-eshopeonweb-2242205 
+  LOCATION: canadacentral
   TEMPLATE-FILE: infra/webapp.bicep
-  SUBSCRIPTION-ID: YOUR-SUBS-ID
-  WEBAPP-NAME: eshoponweb-webapp-NAME
+  SUBSCRIPTION-ID: 061ccebf-4007-4396-a117-214f64d3c383
+  WEBAPP-NAME: eshoponweb-webapp-2242205
 
 
 jobs:
@@ -87,7 +87,7 @@ jobs:
         parameters: 'webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }}'
         failOnStdErr: false   
     
-    # Publish website to Azure App Service (WebApp)
+    # Publish website to Azure App Service (eshoponweb-webapp-2242205)
     # Step disabled due to issue where the site sometimes can't be found: https://github.com/microsoft/pipelines-appservice-lib/issues/56. Instead deploy using CLI
     - name: Publish Website to WebApp
       if: false #Disable step due to comment above
